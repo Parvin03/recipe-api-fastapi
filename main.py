@@ -6,6 +6,7 @@ from models import Base
 from routers.users import router as users_router
 from routers import recipes
 from routers import ratings
+from routers import uploads
 
 app = FastAPI()
 
@@ -14,6 +15,7 @@ Base.metadata.create_all(bind=engine)
 app.include_router(users_router)
 app.include_router(recipes.router)
 app.include_router(ratings.router)
+app.include_router(uploads.router)
 
 @app.get("/")
 def home():
